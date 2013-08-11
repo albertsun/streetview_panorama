@@ -19,3 +19,15 @@ html, body, #wrapper {
   bottom: 5%;
   background-color: #FFFFFF;
 }
+#pano {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: #FFFFFF;
+  z-index: 100;
+}
+#pano img {
+  float: left;
+  margin: 5px;
+}
