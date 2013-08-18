@@ -1,0 +1,4 @@
+Draw a line and get Google Street View images at an interval along that line.
+
+Kind of works, but mostly doesn't because I haven't figured out yet how to match up image boundaries with each other to make a seamless image.
+
