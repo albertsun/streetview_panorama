@@ -164,16 +164,24 @@ function renderStreetviewImages(image_locations) {
         $("<img>").attr("src",image_url)
       );
   }
+  return $("#pano img");
 }
 // renderStreetviewImages(_.map(getPointsAlongLine(PanoramaMaker.path), function(p) { return getImageForPoint(p); }))
 
 function rerenderAll() {
   // renderStreetviewImages(_.map(getPointsAlongLine(PanoramaMaker.path), function(p) { return getImageForPoint(p); }));
   getStreetviewPointsAlongLine().done(function(unique_points){
-    renderStreetviewImages(unique_points);
+    var images = renderStreetviewImages(unique_points);
+    stitchCanvas(images);
   });
 }
 
 function hideStreetviewImages() {
   $("#pano").hide();
+}
+
+function stitchCanvas(images) {
+  images.each(function(i, el) {
+    
+  });
 }
