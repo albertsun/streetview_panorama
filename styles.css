@@ -31,3 +31,13 @@ html, body, #wrapper {
   float: left;
   margin: 5px;
 }
+#canvas-wrapper {
+  background-color: #FFFFFF;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  display: none;
+}

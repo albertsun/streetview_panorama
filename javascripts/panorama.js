@@ -181,7 +181,25 @@ function hideStreetviewImages() {
 }
 
 function stitchCanvas(images) {
-  images.each(function(i, el) {
-    
+  var new_canvas = $("<canvas>").attr("id", "panorama-canvas").attr("height",600).attr("width", (600*images.length));
+  $("#canvas-wrapper").show().append(new_canvas);
+  $("#pano").hide();
+  new_canvas = new_canvas[0];
+  var ctx = new_canvas.getContext("2d");
+  var images_loaded = images.map(function(i, el) {
+    console.log("drawing ", el, "to canvas", i*600, 0);
+    var d = new $.Deferred();
+    el.onload = function() {
+      console.log(el, "loaded");
+      ctx.drawImage(el,i*600,0);
+      d.resolve(el);
+    };
+    return d;
+  });
+  jQuery.when.apply(this, images_loaded).then(function() {
+    // $("#canvas-wrapper").append("<img src='"+new_canvas.toDataURL("image/png")+"' alt='from canvas'/>");
+    // canvas is marked as unclean now so the above doesn't work.
+
+    // instead have to right click and save as.
   });
 }
